@@ -1,5 +1,5 @@
 {% set name = "webdrivermanager" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.0" %}
 
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/webdrivermanager-{{ version }}.tar.gz
-  sha256: fdd0305be5e6f18edb48afb8e738e2d622ec7817ccd98b3a939c1e443f540cc2
+  sha256: c313a71340f0bb7bfef8b03763a0b1b323473e1cc3945a86f3230e78529af067
 
 build:
   number: 0
   noarch: python
   entry_points:
-    - webdrivermanager = webdrivermanager.cli:main
+    - webdrivermanager = webdrivermanager.__main__:main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
