@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/webdrivermanager-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/webdrivermanager-{{ version }}.tar.gz
   sha256: c313a71340f0bb7bfef8b03763a0b1b323473e1cc3945a86f3230e78529af067
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - webdrivermanager = webdrivermanager.__main__:main
@@ -20,12 +20,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=2.7
+    - python {{ python_min }}
   run:
     - appdirs
     - beautifulsoup4
     - lxml
-    - python >=2.7
+    - python >={{ python_min }}
     - requests
     - tqdm
 
@@ -37,6 +37,7 @@ test:
     - webdrivermanager --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/rasjani/webdrivermanager
